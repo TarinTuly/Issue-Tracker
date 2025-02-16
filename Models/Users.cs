@@ -8,15 +8,20 @@ namespace Issue.Models
         public int Id { get; set; }
 
         [Required, MaxLength(100)]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required, MaxLength(100)]
-        public string Email { get; set; }
+        [EmailAddress]
+        public required string Email { get; set; }
 
         [Required]
-        public string PasswordHash { get; set; } // Store hashed password
+        public required string PasswordHash { get; set; } // Store hashed password
 
         [Required]
-        public string UserType { get; set; } // "Admin", "Developer", "Reporter"
+        [MaxLength(50)]
+        public required string UserType { get; set; } // "Admin", "Developer", "Reporter"
+
+        public ICollection<Issues> IssuesCreated { get; set; } = new List<Issues>();
+        public ICollection<Comments> Comments { get; set; } = new List<Comments>();
     }
 }
