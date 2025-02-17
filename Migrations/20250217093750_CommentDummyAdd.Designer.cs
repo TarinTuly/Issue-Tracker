@@ -4,6 +4,7 @@ using Issue.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Issue.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20250217093750_CommentDummyAdd")]
+    partial class CommentDummyAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,68 +46,6 @@ namespace Issue.Migrations
                     b.HasIndex("IssueId");
 
                     b.ToTable("Attachments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FilePath = "/uploads/error_log1.txt",
-                            IssueId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FilePath = "/uploads/screenshot_bug.png",
-                            IssueId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FilePath = "/uploads/stack_trace.log",
-                            IssueId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FilePath = "/uploads/fix_patch.diff",
-                            IssueId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            FilePath = "/uploads/test_results.pdf",
-                            IssueId = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            FilePath = "/uploads/crash_report.txt",
-                            IssueId = 3
-                        },
-                        new
-                        {
-                            Id = 7,
-                            FilePath = "/uploads/debug_log.txt",
-                            IssueId = 4
-                        },
-                        new
-                        {
-                            Id = 8,
-                            FilePath = "/uploads/final_patch.zip",
-                            IssueId = 4
-                        },
-                        new
-                        {
-                            Id = 9,
-                            FilePath = "/uploads/deployment_logs.txt",
-                            IssueId = 5
-                        },
-                        new
-                        {
-                            Id = 10,
-                            FilePath = "/uploads/code_review.docx",
-                            IssueId = 5
-                        });
                 });
 
             modelBuilder.Entity("Issue.Models.Comments", b =>
@@ -243,78 +184,6 @@ namespace Issue.Migrations
                     b.HasIndex("IssueId");
 
                     b.ToTable("IssueHistories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ChangedAt = new DateTime(2024, 2, 1, 10, 30, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 1,
-                            StatusChange = "Opened"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ChangedAt = new DateTime(2024, 2, 2, 12, 15, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 1,
-                            StatusChange = "In Progress"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ChangedAt = new DateTime(2024, 2, 3, 14, 45, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 1,
-                            StatusChange = "Resolved"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ChangedAt = new DateTime(2024, 2, 4, 9, 10, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 2,
-                            StatusChange = "Opened"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ChangedAt = new DateTime(2024, 2, 5, 16, 20, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 2,
-                            StatusChange = "Closed"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ChangedAt = new DateTime(2024, 2, 6, 11, 5, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 3,
-                            StatusChange = "Opened"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ChangedAt = new DateTime(2024, 2, 7, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 3,
-                            StatusChange = "In Review"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ChangedAt = new DateTime(2024, 2, 8, 8, 30, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 4,
-                            StatusChange = "Opened"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ChangedAt = new DateTime(2024, 2, 9, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 5,
-                            StatusChange = "Reopened"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ChangedAt = new DateTime(2024, 2, 10, 17, 25, 0, 0, DateTimeKind.Unspecified),
-                            IssueId = 5,
-                            StatusChange = "Resolved"
-                        });
                 });
 
             modelBuilder.Entity("Issue.Models.Issues", b =>

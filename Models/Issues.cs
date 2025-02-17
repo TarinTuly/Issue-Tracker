@@ -22,13 +22,13 @@ namespace Issue.Models
         public int ProjectId { get; set; }
 
         [ForeignKey(nameof(ProjectId))]
-        public required Projects Project { get; set; }
+        public  Projects? Project { get; set; }
 
         [Required]
         public int CreatedById { get; set; }
 
         [ForeignKey(nameof(CreatedById))]
-        public required Users CreatedBy { get; set; }
+        public  Users? CreatedBy { get; set; }
 
         public ICollection<Comments> Comments { get; set; } = new List<Comments>();
         public ICollection<Attachments> Attachments { get; set; } = new List<Attachments>();

@@ -13,6 +13,6 @@ namespace Issue.Models
         [MaxLength(500)]
         public string? Description { get; set; }
 
-        public  ICollection<Issues> Issues { get; set; }
+        public ICollection<Issues>? Issues { get; set; } = new List<Issues>();
     }
 }

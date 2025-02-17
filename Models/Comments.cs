@@ -15,14 +15,14 @@ namespace Issue.Models
         public int IssueId { get; set; }
 
         [ForeignKey(nameof(IssueId))]
-        public required Issues Issue { get; set; }
+        public  Issues? Issue { get; set; }
 
         [Required]
         public int CreatedById { get; set; }
 
         [ForeignKey(nameof(CreatedById))]
-        public required Users CreatedBy { get; set; }
+        public  Users? CreatedBy { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } 
     }
 }

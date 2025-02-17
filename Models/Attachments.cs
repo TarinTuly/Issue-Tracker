@@ -15,6 +15,6 @@ namespace Issue.Models
         public int IssueId { get; set; }
 
         [ForeignKey("IssueId")]
-        public required Issues Issue { get; set; }
+        public  Issues? Issue { get; set; }
     }
 }
